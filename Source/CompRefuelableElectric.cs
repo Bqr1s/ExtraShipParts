@@ -25,7 +25,8 @@ namespace ExtraShipParts
 			}
 			if (Find.TickManager.TicksGame % 30 == 0)
 			{
-				this.GetType().GetField("fuel", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(this, battery.StoredEnergy);
+				float refuelAmount = battery.StoredEnergy - Fuel;
+				Refuel(refuelAmount);
 			}
 		}
 	}
